@@ -17,10 +17,12 @@ import com.yupi.zlcojbackendjudemode.model.enums.QuestionSubmitLanguageEnum;
 import com.yupi.zlcojbackendjudemode.model.enums.QuestionSubmitStatusEnum;
 import com.yupi.zlcojbackendjudemode.model.vo.QuestionSubmitVO;
 import com.yupi.zlcojbackendquestionservice.mapper.QuestionSubmitMapper;
+import com.yupi.zlcojbackendquestionservice.rabbitmq.MyMessageProducer;
 import com.yupi.zlcojbackendserviceclient.service.*;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +52,9 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     @Resource
     @Lazy //循环依赖, 按需加载
     private JudgeFeignClient judgeFeightClient;
+
+    @Resource
+    private MyMessageProducer myMessageProducer;
 
     @Override
     public long doQuestionSubmit(QuestionSubmitAddRequest questionSubmitAddRequest, User loginnUser) {
@@ -86,11 +91,15 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         }
 
         Long questionSubmitId = questionSubmit.getId();
-        //todo 执行判题服务
-        CompletableFuture.runAsync(() -> {
-            QuestionSubmit questionSubmit1 = judgeFeightClient.duJudge(questionSubmitId);
+        myMessageProducer.sendMessage("code_exchange","my_routingkey",String.valueOf(questionSubmitId));
 
-        });
+
+        //todo 执行判题服务
+//        CompletableFuture.runAsync(() -> {
+//
+////            QuestionSubmit questionSubmit1 = judgeFeightClient.duJudge(questionSubmitId);
+//
+//        });
 
         return questionSubmitId;
 

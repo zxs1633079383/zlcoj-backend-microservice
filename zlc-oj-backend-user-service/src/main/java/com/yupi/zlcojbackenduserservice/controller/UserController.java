@@ -14,7 +14,7 @@ import com.yupi.zlcojbackendjudemode.model.dto.user.*;
 import com.yupi.zlcojbackendjudemode.model.entity.User;
 import com.yupi.zlcojbackendjudemode.model.vo.LoginUserVO;
 import com.yupi.zlcojbackendjudemode.model.vo.UserVO;
-import com.yupi.zlcojbackendserviceclient.service.UserService;
+import com.yupi.zlcojbackenduserservice.service.impl.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.lang3.StringUtils;

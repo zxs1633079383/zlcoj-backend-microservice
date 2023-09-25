@@ -4,6 +4,8 @@ package com.yupi.zlcojbackendquestionservice.controller.inner;
 import com.yupi.zlcojbackendjudemode.model.entity.Question;
 import com.yupi.zlcojbackendjudemode.model.entity.QuestionSubmit;
 import com.yupi.zlcojbackendjudemode.model.entity.User;
+import com.yupi.zlcojbackendquestionservice.service.impl.QuestionService;
+import com.yupi.zlcojbackendquestionservice.service.impl.QuestionSubmitService;
 import com.yupi.zlcojbackendserviceclient.service.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +16,8 @@ import java.util.List;
 /**
  * UserInnerController该服务仅支持内部调用, 不能供前端调用
  */
-@RestController("/inner")
+@RestController
+@RequestMapping("/inner")
 public class QuestionInnerController implements QuestionFeignClient {
 
     @Resource

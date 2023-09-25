@@ -13,7 +13,6 @@ import com.yupi.zlcojbackendjudemode.model.entity.User;
 import com.yupi.zlcojbackendjudemode.model.enums.UserRoleEnum;
 import com.yupi.zlcojbackendjudemode.model.vo.LoginUserVO;
 import com.yupi.zlcojbackendjudemode.model.vo.UserVO;
-import com.yupi.zlcojbackendserviceclient.service.UserService;
 import com.yupi.zlcojbackenduserservice.mapper.UserMapper;
 
 import lombok.extern.slf4j.Slf4j;

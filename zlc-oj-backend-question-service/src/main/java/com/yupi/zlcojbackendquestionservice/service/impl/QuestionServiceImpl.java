@@ -16,9 +16,7 @@ import com.yupi.zlcojbackendjudemode.model.entity.User;
 import com.yupi.zlcojbackendjudemode.model.vo.QuestionVO;
 import com.yupi.zlcojbackendjudemode.model.vo.UserVO;
 import com.yupi.zlcojbackendquestionservice.mapper.QuestionMapper;
-import com.yupi.zlcojbackendserviceclient.service.QuestionService;
 import com.yupi.zlcojbackendserviceclient.service.UserFeignClient;
-import com.yupi.zlcojbackendserviceclient.service.UserService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +24,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;

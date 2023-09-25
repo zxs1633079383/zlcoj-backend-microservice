@@ -3,3 +3,37 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    # 根据路由不同,跳转不同的页面.
+    gateway:
+      routes:
+        - id: zlc-oj-backend-user-service
+          uri: lb://zlc-oj-backend-user-service
+          predicates:
+            - Path=/api/user/**
+
+        - id: zlc-oj-backend-question-service
+          uri: lb://zlc-oj-backend-question-service
+          predicates:
+            - Path=/api/question/**
+
+        - id: zlc-oj-backend-jude-service
+          uri: lb://zlc-oj-backend-jude-service
+          predicates:
+            - Path=/api/judge/**
+
+  application:
+    name: zlc-ok-backend-gateway
+  main:
+    web-application-type: reactive
+server:
+  port: 8101
+
+knife4j:
+  gateway:
+    enabled: true
+    strategy: discover
+    discover:
+      # 开启discover模式
+      enabled: true
+      version: swagger2
+  # 第一个配置

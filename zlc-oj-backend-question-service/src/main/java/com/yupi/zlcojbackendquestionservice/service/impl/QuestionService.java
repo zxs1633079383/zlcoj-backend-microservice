@@ -1,4 +1,4 @@
-package com.yupi.zlcojbackendserviceclient.service;
+package com.yupi.zlcojbackendquestionservice.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

@@ -1,4 +1,4 @@
-package com.yupi.zlcojbackendserviceclient.service;
+package com.yupi.zlcojbackenduserservice.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -6,7 +6,6 @@ import com.yupi.zlcojbackendjudemode.model.dto.user.UserQueryRequest;
 import com.yupi.zlcojbackendjudemode.model.entity.User;
 import com.yupi.zlcojbackendjudemode.model.vo.LoginUserVO;
 import com.yupi.zlcojbackendjudemode.model.vo.UserVO;
-
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -1,5 +1,6 @@
 package com.yupi.zlcojbackendquestionservice;
 
+import com.yupi.zlcojbackendquestionservice.rabbitmq.InitRabbitMq;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +20,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class ZlcOjBackendQuestionServiceApplication {
 
     public static void main(String[] args) {
+        InitRabbitMq.doInit();
         SpringApplication.run(ZlcOjBackendQuestionServiceApplication.class, args);
     }
 
